@@ -50,7 +50,7 @@ print("autotrade start")
 while True:
     try:
         now = datetime.datetime.now()
-        df = pyupbit.get_ohlcv("KRW-XRP", interval="minute30", count=100) # 30분 봉 데이터 가져오기
+        df = pyupbit.get_ohlcv("KRW-XRP", interval="minute120", count=100) # 30분 봉 데이터 가져오기
         calculate_macd(df) # MACD 계산
         
         if df['MACD'].iloc[-1] > df['Signal_Line'].iloc[-1] and df['MACD'].iloc[-2] <= df['Signal_Line'].iloc[-2]:
